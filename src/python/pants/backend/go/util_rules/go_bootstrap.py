@@ -85,7 +85,7 @@ def compatible_go_version(*, compiler_version: str, target_version: str) -> bool
         return True
 
     def parse(v: str) -> tuple[int, int]:
-        major, minor = v.split(".", maxsplit=1)
+        major, minor = v.split(".")[:2]
         return int(major), int(minor)
 
     return parse(target_version) <= parse(compiler_version)
